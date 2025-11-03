@@ -1,7 +1,6 @@
-import React from 'react';
 import { CheckCircleIcon, PackageIcon, TruckIcon, ShieldCheckIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
 
-export function Landing() {
+export function LandingPage() {
   const stats = [
     { number: '3,800+', label: 'Active Retail Doors' },
     { number: '1,700+', label: 'Drugstore Partnerships' },
@@ -31,7 +30,7 @@ export function Landing() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url(/images/hero-bg.jpg)',
+              'url(/images/landing-hero-bg.jpg)',
           }}
         >
           <div className="absolute inset-0 bg-[#2f472c] opacity-80"></div>
