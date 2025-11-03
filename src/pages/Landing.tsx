@@ -1,3 +1,4 @@
+import React from 'react';
 import { CheckCircleIcon, PackageIcon, TruckIcon, ShieldCheckIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
 
 export function Landing() {
@@ -14,6 +15,14 @@ export function Landing() {
     { icon: ShieldCheckIcon, title: 'Trusted Partner', description: '15 years of industry experience.' },
   ];
 
+  const products = [
+  { name: 'Oilganics', logo: '/src/assets/logos/oilganics.jpg' },
+  { name: "Doggies' Choice", logo: '/src/assets/logos/doggies_choice.jpeg' },
+  { name: 'Tai Chi', logo: '/src/assets/logos/taichi.jpg' },
+  { name: 'Kuchi Kuchi', logo: '/src/assets/logos/kuchi.jpg' },
+];
+
+
   return (
     <div className="flex flex-col">
       {/* Hero */}
@@ -22,7 +31,7 @@ export function Landing() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              'url()',
+              'url(/images/hero-bg.jpg)',
           }}
         >
           <div className="absolute inset-0 bg-[#2f472c] opacity-80"></div>
@@ -96,6 +105,33 @@ export function Landing() {
           </div>
         </div>
       </section>
+
+      {/* Products */}
+      <section id="products" className="py-20 bg-[#2f472c]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">Our Products</h2>
+    <p className="text-center text-gray-300 mb-12">
+      A diverse product range to meet all your wholesale and retail needs.
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {products.map((product, index) => (
+        <div
+          key={index}
+          className="border-2 border-white p-12 rounded-lg flex flex-col items-center justify-center hover:bg-[#3d5a38] transition"
+        >
+          {/* Logo image */}
+          <img
+            src={product.logo} // Add a `logo` property to your products array
+            alt={product.name}
+            className="w-32 h-32 rounded-full mb-6 object-cover shadow-lg"
+          />
+          <h3 className="text-xl font-semibold text-white">{product.name}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact */}
       <section id="contact" className="py-20 bg-white">
