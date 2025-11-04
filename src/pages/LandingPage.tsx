@@ -16,10 +16,10 @@ export function LandingPage() {
   ];
 
   const products = [
-  { name: 'Oilganics', logo: '/src/assets/logos/oilganics.jpg' },
-  { name: "Doggies' Choice", logo: '/src/assets/logos/doggies_choice.jpeg' },
-  { name: 'Tai Chi', logo: '/src/assets/logos/taichi.jpg' },
-  { name: 'Kuchi Kuchi', logo: '/src/assets/logos/kuchi.jpg' },
+  { name: 'Oilganics', logo: '../src/assets/logos/oilganics.jpg' },
+  { name: "Doggies' Choice", logo: '../src/assets/logos/doggies_choice.jpeg' },
+  { name: 'Tai Chi', logo: '../src/assets/logos/taichi.jpg' },
+  { name: 'Kuchi Kuchi', logo: '../src/assets/logos/kuchi.jpg' },
 ];
 
 
@@ -121,7 +121,7 @@ export function LandingPage() {
         >
           {/* Logo image */}
           <img
-            src={product.logo} // Add a `logo` property to your products array
+            src={product.logo} 
             alt={product.name}
             className="w-32 h-32 rounded-full mb-6 object-cover shadow-lg"
           />
