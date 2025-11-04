@@ -1,4 +1,5 @@
 import { CheckCircleIcon, PackageIcon, TruckIcon, ShieldCheckIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 export function LandingPage() {
   const stats = [
@@ -133,89 +134,50 @@ export function LandingPage() {
 
 
       {/* Contact */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Contact Us</h2>
-          <p className="text-center text-gray-600 mb-12">
-            Get in touch with our team for wholesale inquiries and promotions!
-          </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-[#f5c71d] hover:bg-[#d4ab0d] text-black font-semibold px-6 py-3 rounded transition"
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
+<section id="contact" className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Contact Us</h2>
+    <p className="text-center text-gray-600 mb-12">
+      Get in touch with our team for wholesale inquiries and promotions!
+    </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <MapPinIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
-                  <p className="text-gray-600">
-                    Unit 1, 2nd Floor, Liberte Building, Ignacia St, Punta Street Barangay 395, Liberia Buildiing Philippines
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <PhoneIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Telephone Number</h3>
-                  <p className="text-gray-600">(123) 456-7890</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <MailIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
-                <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                  <p className="text-gray-600">rhodesiansalescorp@gmail.com</p>
-                </div>
-              </div>
-            </div>
+    {/* Grid with form and contact info */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Contact form component */}
+      <ContactForm />
+
+      {/* Contact info */}
+      <div className="space-y-8">
+        <div className="flex items-start space-x-4">
+          <MapPinIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
+            <p className="text-gray-600">
+              Unit 1, 2nd Floor, Liberte Building, Ignacia St, Punta Street Barangay 395, Liberia Building Philippines
+            </p>
           </div>
         </div>
-      </section>
+
+        <div className="flex items-start space-x-4">
+          <PhoneIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-2">Telephone Number</h3>
+            <p className="text-gray-600">(123) 456-7890</p>
+          </div>
+        </div>
+
+        <div className="flex items-start space-x-4">
+          <MailIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+            <p className="text-gray-600">rhodesiansalescorp@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }
