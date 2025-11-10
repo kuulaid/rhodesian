@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { ProductCard } from '../components/ProductCard';
-import { products } from '../data/products';
+import { products, type Product } from '../data/products';
+import ProductModal from "../components/ProductModal";
 
 export function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Products');
+  const [modalProduct, setModalProduct] = useState<Product | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -12,6 +15,16 @@ export function ProductsPage() {
       selectedCategory === "All Products" || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  const handleProductClick = (product: Product) => {
+    setModalProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalProduct(null);
+  };
 
   return (
     <div className="w-full">
@@ -53,7 +66,9 @@ export function ProductsPage() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProducts.map(product => (
-              <ProductCard key={product.id} name={product.name} image={product.image} />
+              <div key={product.name} onClick={() => handleProductClick(product)} className="cursor-pointer">
+                <ProductCard name={product.name} image={product.image} />
+              </div>
             ))}
           </div>
 
@@ -63,6 +78,15 @@ export function ProductsPage() {
                 No products found matching your search or filter.
               </p>
             </div>
+          )}
+
+          {/* Product Modal */}
+          {modalProduct && (
+            <ProductModal
+              product={modalProduct}
+              open={isModalOpen}
+              onClose={handleCloseModal}
+            />
           )}
         </div>
       </section>

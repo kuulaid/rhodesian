@@ -7,7 +7,7 @@ export function ProductCard({
   image
 }: ProductCardProps) {
   return <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-      <div className="bg-gray-400 h-64 flex items-center justify-center p-6">
+      <div className="bg-[#2f472c] h-64 flex items-center justify-center p-6">
         <img src={image} alt={name} className="max-h-full max-w-full object-contain" />
       </div>
       <div className="p-4 text-center">
