@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Suspense, lazy, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { preloadImages } from "./lib/preloadImages";
 
 // Lazy load pages
 const LandingPage = lazy(() => import("./pages/LandingPage"));
@@ -30,6 +31,14 @@ function PageLoader() {
 }
 
 function App() {
+
+  useEffect(() => {
+    preloadImages([
+      "/images/about-hero.jpg",
+      "/images/landing-hero-bg.jpg"
+    ]);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
