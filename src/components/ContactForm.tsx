@@ -141,7 +141,7 @@ export default function ContactForm() {
             rows={4}
             name="message"
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d]"
+            className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#f5c71d] resize-none overflow-y-auto max-h-40"
           ></textarea>
         </div>
 
