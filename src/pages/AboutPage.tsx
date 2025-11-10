@@ -157,3 +157,5 @@ export function AboutPage() {
       </section>
     </div>;
 }
+
+export default AboutPage;
