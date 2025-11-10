@@ -30,11 +30,17 @@ A modern, responsive web application showcasing products and company information
 
 src/
 ├── components/
+│   ├── Footer.tsx
+│   ├── ProductCard.tsx
+│   └── ProductModal.tsx
 ├── data/
-│ └── products.ts
+│   └── products.ts
 ├── pages/
-│ └── ProductsPage.tsx
+│   ├── AboutPage.tsx
+│   ├── ContactPage.tsx
+│   └── ProductsPage.tsx
 └── App.tsx
+
 
 
 - **components/** – Reusable UI components
