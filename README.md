@@ -27,7 +27,7 @@ A modern, responsive web application showcasing products and company information
 
 
 ## Project Structure
-
+```
 src/
 ├── components/
 │   ├── Footer.tsx
@@ -40,7 +40,7 @@ src/
 │   ├── ContactPage.tsx
 │   └── ProductsPage.tsx
 └── App.tsx
-
+```
 
 
 - **components/** – Reusable UI components
