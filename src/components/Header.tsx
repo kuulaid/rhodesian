@@ -60,14 +60,7 @@ export function Header() {
               Products
             </Link>
             
-            <button
-              onClick={handleContactClick}
-              className={`transition text-gray-700 hover:text-gray-900 ${
-                location.pathname === '/contact' ? 'font-semibold text-gray-900' : ''
-              }`}
-            >
-              Contact
-            </button>
+           
           </nav>
 
           {/* Get in Touch button */}

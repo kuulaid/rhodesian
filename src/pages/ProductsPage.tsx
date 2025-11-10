@@ -1,20 +1,55 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { ProductCard } from '../components/ProductCard';
 import { products, type Product } from '../data/products';
 import ProductModal from "../components/ProductModal";
 
 export function ProductsPage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const initialFilter = queryParams.get('filter') || 'All Products';
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Products');
   const [modalProduct, setModalProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  
+  const formatForUrl = (str: string) => str.toLowerCase().replace(/\s+/g, '-');
+
+  // Convert URL filter to dropdown-friendly text
+  useEffect(() => {
+    if (initialFilter) {
+      const formatted = initialFilter
+        .split('-')
+        .map(s => s[0].toUpperCase() + s.slice(1))
+        .join(' ');
+      setSelectedCategory(formatted);
+    }
+  }, [initialFilter]);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+
+    if (category.toLowerCase() === "all products") {
+      navigate("/products");
+    } else {
+      navigate(`/products?filter=${formatForUrl(category)}`);
+    }
+  };
+
   const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory =
-      selectedCategory === "All Products" || product.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+  
+  const matchesCategory =
+    selectedCategory.toLowerCase() === "all products" ||
+    product.category.toLowerCase() === selectedCategory.toLowerCase();
+
+  return matchesSearch && matchesCategory;
+});
+
 
   const handleProductClick = (product: Product) => {
     setModalProduct(product);
@@ -51,7 +86,7 @@ export function ProductsPage() {
             <div>
               <select
                 value={selectedCategory}
-                onChange={e => setSelectedCategory(e.target.value)}
+                onChange={e => handleCategoryChange(e.target.value)}
                 className="px-6 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f5c71d] bg-white"
               >
                 <option>All Products</option>
@@ -66,7 +101,11 @@ export function ProductsPage() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProducts.map(product => (
-              <div key={product.name} onClick={() => handleProductClick(product)} className="cursor-pointer">
+              <div
+                key={product.name}
+                onClick={() => handleProductClick(product)}
+                className="cursor-pointer"
+              >
                 <ProductCard name={product.name} image={product.image} />
               </div>
             ))}

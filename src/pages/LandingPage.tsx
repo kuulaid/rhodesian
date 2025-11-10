@@ -1,5 +1,7 @@
 import { CheckCircleIcon, PackageIcon, TruckIcon, ShieldCheckIcon, MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import AnimatedCounter from '../components/AnimatedCounter';
+import { useNavigate } from "react-router-dom";
 
 import oilganicsLogo from '../assets/logos/oilganics.jpg';
 import doggiesLogo from '../assets/logos/doggies_choice.jpeg';
@@ -7,11 +9,15 @@ import taichiLogo from '../assets/logos/taichi.jpg';
 import kuchiLogo from '../assets/logos/kuchi.jpg';
 
 export function LandingPage() {
+
+
+  const navigate = useNavigate();
+
   const stats = [
-    { number: '3,800+', label: 'Active Retail Doors' },
-    { number: '1,700+', label: 'Drugstore Partnerships' },
-    { number: '20+', label: 'Corporate Partnerships' },
-  ];
+  { number: 3800, label: 'Active Retail Doors' },
+  { number: 1700, label: 'Drugstore Partnerships' },
+  { number: 20, label: 'Corporate Partnerships' },
+];
 
   const features = [
     { icon: CheckCircleIcon, title: 'Quality Control', description: 'Every product is put through quality control.' },
@@ -51,19 +57,20 @@ export function LandingPage() {
       </section>
 
       {/* Statistics */}
-      <section className="bg-[#2f472c] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-white">
-                <div className="text-4xl md:text-5xl font-bold mb-2">{stat.number}</div>
-                <div className="text-lg">{stat.label}</div>
-              </div>
-            ))}
+        <section className="bg-[#2f472c] py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {stats.map((stat, index) => (
+          <div key={index} className="text-white">
+            <div className="text-4xl md:text-5xl font-bold mb-2">
+              <AnimatedCounter value={stat.number} />
+            </div>
+            <div className="text-lg">{stat.label}</div>
           </div>
-        </div>
-      </section>
-
+        ))}
+      </div>
+    </div>
+  </section>
       {/* Features */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,8 +109,11 @@ export function LandingPage() {
                 A leading distributor and wholesaler of pharmaceutical, cosmetic and consumer goods with a strong presence in
                 the regional retailers across the Philippines.
               </p>
-              <button className="bg-[#f5c71d] hover:bg-[#d4ab0d] text-black font-semibold px-8 py-3 rounded transition">
-                Learn More
+              <button
+                  onClick={() => navigate("/about")}
+                  className="bg-[#f5c71d] hover:bg-[#d4ab0d] text-black font-semibold px-8 py-3 rounded transition"
+                >
+                  Learn More
               </button>
             </div>
           </div>
@@ -112,29 +122,29 @@ export function LandingPage() {
 
       {/* Products */}
       <section id="products" className="py-20 bg-[#2f472c]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">Our Products</h2>
-    <p className="text-center text-gray-300 mb-12">
-      A diverse product range to meet all your wholesale and retail needs.
-    </p>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className="border-2 border-white p-12 rounded-lg flex flex-col items-center justify-center hover:bg-[#3d5a38] transition"
-        >
-          {/* Logo image */}
-          <img
-            src={product.logo} 
-            alt={product.name}
-            className="w-32 h-32 rounded-full mb-6 object-cover shadow-lg"
-          />
-          <h3 className="text-xl font-semibold text-white">{product.name}</h3>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">Our Products</h2>
+          <p className="text-center text-gray-300 mb-12">
+            A diverse product range to meet all your wholesale and retail needs.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="border-2 border-white p-12 rounded-lg flex flex-col items-center justify-center hover:bg-[#3d5a38] transition"
+              >
+                {/* Logo image */}
+                <img
+                  src={product.logo} 
+                  alt={product.name}
+                  className="w-32 h-32 rounded-full mb-6 object-cover shadow-lg"
+                />
+                <h3 className="text-xl font-semibold text-white">{product.name}</h3>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
 
       {/* Contact */}
