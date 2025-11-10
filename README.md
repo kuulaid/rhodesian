@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# Rhodesian Sales Corp. Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application showcasing products and company information for **Rhodesian Sales Corp.**, built with **React**, **TypeScript**, **Tailwind CSS**, and **React Router**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Product Catalog**
+  - Browse products with images and names.
+  - Filter products by category via URL query parameters or dropdown.
+  - View product details in a modal window.
 
-## React Compiler
+- **Search Functionality**
+  - Search products by name.
+  - Combines with category filter for precise results.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Responsive Layout**
+  - Grid layout for products.
+  - Fully responsive across mobile, tablet, and desktop screens.
 
-## Expanding the ESLint configuration
+- **Footer**
+  - Company information.
+  - Quick links to About, Products, Contact pages.
+  - Connect with social media (Facebook, Shopee).
+  - Cookies information modal.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Modular Components**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+src/
+├── components/
+├── data/
+│ └── products.ts
+├── pages/
+│ └── ProductsPage.tsx
+└── App.tsx
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **components/** – Reusable UI components
+- **data/** – Product data
+- **pages/** – Main page components (Products, Contact, About)
+- **App.tsx** – Route definitions
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/kuulaid/rhodesian.git
+cd rhodesian-sales
+
+    Install dependencies:
+
+npm install
+# or
+yarn install
+
+    Start the development server:
+
+npm run dev
+# or
+yarn dev
+
+The app will be available at http://localhost:5173.
+
+
+Build the production version:
+
+npm run build
+# or
+yarn build
+
+This project is proprietary, developed for Rhodesian Sales Corp.
