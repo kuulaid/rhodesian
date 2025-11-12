@@ -36,8 +36,7 @@ export function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
                   <p className="text-gray-600">
-                    Unit 1, 2nd Floor, Liberte Building, Ignacia St, Punta Street
-                    Barangay 395, Liberia Building, Philippines
+                    31 Iglesia Ni Kristo Street, Marilao, 3019 Bulacan
                   </p>
                 </div>
               </div>
