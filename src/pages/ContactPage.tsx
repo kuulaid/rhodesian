@@ -4,7 +4,7 @@ import { GoogleMap } from "../components/GoogleMap";
 
 export function ContactPage() {
   const mapUrl =
-    "https://www.google.com/maps/embed?pb=..."; // replace with your actual embed URL
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.9186050699273!2d120.96533740000001!3d14.7736146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b20ad1770153%3A0x74aef1dc27d14674!2sRhodesian%20Sales%20Corporation!5e0!3m2!1sen!2sph!4v1762925309285!5m2!1sen!2sph" ; // replace with your actual embed URL
 
   return (
     <section className="py-20 bg-white">
