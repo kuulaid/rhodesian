@@ -20,7 +20,7 @@ export function LandingPage() {
 ];
 
   const features = [
-    { icon: CheckCircleIcon, title: 'Quality Control', description: 'Every product is put through quality control.' },
+    { icon: CheckCircleIcon, title: 'Organized', description: 'Everything is structured and managed efficiently for smooth workflow.' },
     { icon: PackageIcon, title: 'Wide Product Range', description: 'Extensive selection of quality products.' },
     { icon: TruckIcon, title: 'Fast Delivery', description: 'Reliable, fast delivery networks.' },
     { icon: ShieldCheckIcon, title: 'Trusted Partner', description: '15 years of industry experience.' },

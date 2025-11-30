@@ -19,31 +19,31 @@ export function AboutPage() {
     image: '/images/about-1995.jpg'
   }, {
     year: '2000',
-    description: 'Appointed as an exclusive distributor of Consave Health Corporation.',
+    description: 'Appointed as an exclusive distributor of Comark International Corporation.',
     image: '/images/about-2000.jpg'
   }, {
     year: '2004',
-    description: 'Appointed as Oilganics Head USA Treatment Shampoo.',
+    description: 'Created the Oliganics Head Lice Treatment Shampoo.',
     image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=400&h=250&fit=crop'
   }, {
     year: '2005',
-    description: 'Appointed as an exclusive distributor for GM (Ginsan Marko Area) Drugstore of ultrasonic corporation.',
+    description: 'Appointed as an exclusive distributor for GMA (Greater Manila Area) Drugstore of Unitrade Corporation.',
     image: '/images/about-2005.jpg'
   }, {
     year: '2007',
-    description: 'Launched Tai Chi Green Tea which was hailed as one of the fastest growth in the industry.',
+    description: 'Launched Tai Chi Liniments which was hailed as one of the top 1000 brands in the Philippines in 2011.',
     image: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?w=400&h=250&fit=crop'
   }, {
     year: '2015',
-    description: 'Rhodesian Distributor joins NetroSales into Rhodesian Sales Corp.',
+    description: 'Rhodesian Distributor was restructure into Rhodesian Sales Corp.',
     image: '/images/about-2015.jpg'
   }, {
     year: '2019',
-    description: 'Rhodesian Sales Corp. has expanded its coverage nationwide to Greater Manila Area and Visayas.',
+    description: 'Rhodesian Sales Corp. has expanded its coverage beyond the Greater Manila Area to include Regions 1, 2, 3 and 4. ',
     image: '/images/about-2019.jpeg'
   }, {
     year: 'Present',
-    description: 'As a result of its expansion, a division of the company was spun off into a new entity, Rhodesian Healthcare Inc.',
+    description: 'As a result of its expansion, a division of the company was spun off into a new entity, Owann Incorporated. ',
     image: '/images/about-present.jpg'
   }];
   return <div className="w-full">
@@ -106,13 +106,7 @@ export function AboutPage() {
                   Mission
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To continuously improve our organizational setup of people,
-                  processes, and systems to create a working environment and
-                  career growth opportunities. Their ingenuity, innovativeness,
-                  and commitment to excellence will enable us to serve our
-                  clients. We are committed to providing our customers with
-                  quality and services that will enhance the highest level of
-                  satisfaction.
+                 To continuously improve our organizational setup of activities by providing our employees with the best working environment and career growth opportunities. Their ingenuity, innovativeness, and accomplishments make the company achieve its goals. We are committed to providing our customers with the best products that will enhance the highest quality of life they deserve.
                 </p>
               </div>
               <div>
@@ -120,12 +114,7 @@ export function AboutPage() {
                   Vision
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To become an excellent service provider through innovative
-                  leadership that serves our clients, partners and consumers. To
-                  become the most preferred, profitable, most efficient
-                  co-marketer and distributor of quality health, wellness and
-                  lifestyle category, in the Philippines, and the Asian
-                  countries.
+                  To become an excellent service provider through professional management that satisfies business partners and consumers. To become the most preferred, profitable, most efficient co-marketer and distributor and be the leading company in its category, in the Philippines, and the Asian countries.
                 </p>
               </div>
             </div>
