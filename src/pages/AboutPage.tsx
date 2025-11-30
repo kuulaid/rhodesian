@@ -12,7 +12,7 @@ export function AboutPage() {
   const milestones = [
     {
       year: '1991',
-      description: 'Entered the garment facility industry as Rhodesian Distributor.',
+      description: "Entered the factory industry as Rhodesian Distributor and started selling Doggies' Choice pet care products",
       image: '/images/about-1991.jpg'
     },
     {
