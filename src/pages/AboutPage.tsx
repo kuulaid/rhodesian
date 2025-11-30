@@ -17,7 +17,7 @@ export function AboutPage() {
     },
     {
       year: '1995',
-      description: 'Appointed as an exclusive distributor of generic products by Brands Manufacturing Corporation.',
+      description: 'Appointed as an exclusive distributor of cosmetic products by Splash Manufacturing Corporation.',
       image: '/images/about-1995.jpg'
     },
     {
@@ -32,12 +32,12 @@ export function AboutPage() {
     },
     {
       year: '2005',
-      description: 'Appointed as an exclusive distributor for GMA Drugstore of Unitrade Corporation.',
+      description: 'Appointed as an exclusive distributor for GMA (Greater Manila Area) Drugstore of Unitrade Corporation.',
       image: '/images/about-2005.jpg'
     },
     {
       year: '2007',
-      description: 'Launched Tai Chi Liniments which was hailed as a top 1000 Philippine brand.',
+      description: 'Launched Tai Chi Liniments which was hailed as one of the top 1000 brands in the Philippines in 2011.',
       image: 'https://images.unsplash.com/photo-1556740772-1a741367b93e?w=400&h=250&fit=crop'
     },
     {
@@ -47,12 +47,12 @@ export function AboutPage() {
     },
     {
       year: '2019',
-      description: 'Expanded coverage beyond GMA to Regions 1–4.',
+      description: 'Rhodesian Sales Corp. has expanded its coverage beyond the Greater Manila Area to include Regions 1, 2, 3 and 4. ',
       image: '/images/about-2019.jpeg'
     },
     {
       year: 'Present',
-      description: 'A division of the company was spun off into Owann Incorporated.',
+      description: 'As a result of its expansion, a division of the company was spun off into a new entity, Owann Incorporated. ',
       image: '/images/about-present.jpg'
     }
   ];
@@ -208,7 +208,7 @@ export function AboutPage() {
               <motion.div variants={defaultVariants}>
                 <h3 className="text-2xl font-bold text-[#f5c71d] mb-4">Mission</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To continuously improve our organizational setup... (keep your text)
+                  To continuously improve our organizational setup of activities by providing our employees with the best working environment and career growth opportunities. Their ingenuity, innovativeness, and accomplishments make the company achieve its goals. We are committed to providing our customers with the best products that will enhance the highest quality of life they deserve.
                 </p>
               </motion.div>
 
@@ -223,7 +223,7 @@ export function AboutPage() {
               >
                 <h3 className="text-2xl font-bold text-[#f5c71d] mb-4">Vision</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  To become an excellent service provider... (keep your text)
+                  To become an excellent service provider through professional management that satisfies business partners and consumers. To become the most preferred, profitable, most efficient co-marketer and distributor and be the leading company in its category, in the Philippines, and the Asian countries.
                 </p>
               </motion.div>
             </div>
