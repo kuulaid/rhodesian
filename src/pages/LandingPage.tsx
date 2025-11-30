@@ -2,7 +2,6 @@ import { CheckCircleIcon, PackageIcon, TruckIcon, ShieldCheckIcon, MapPinIcon, P
 import ContactForm from '../components/ContactForm';
 import AnimatedCounter from '../components/AnimatedCounter';
 import { useNavigate } from "react-router-dom";
-// Import motion from framer-motion
 import { motion } from 'framer-motion';
 
 import oilganicsLogo from '../assets/logos/oilganics.jpg';
@@ -10,32 +9,34 @@ import doggiesLogo from '../assets/logos/doggies_choice.jpeg';
 import taichiLogo from '../assets/logos/taichi.jpg';
 import kuchiLogo from '../assets/logos/kuchi.jpg';
 
-// General Animation Variants (Slide-up and Fade-in)
+// -------- FIXED: Using cubic-bezier numbers instead of "easeOut" -------- //
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+// General Animation Variants
 const defaultVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
-    opacity: 1, 
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
+      ease: EASE,
     }
   },
 };
 
-// Variants for staggered Features cards (as defined previously)
+// Variants for staggered cards
 const featureVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { 
-    opacity: 1, 
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut"
+      ease: EASE,
     }
   },
 };
-
 
 export function LandingPage() {
   const navigate = useNavigate();
@@ -62,23 +63,18 @@ export function LandingPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero - ANIMATION ADDED */}
+      
+      {/* HERO */}
       <section id="home" className="relative h-[500px] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              'url(/images/landing-hero-bg.jpg)',
-          }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/landing-hero-bg.jpg)' }}>
           <motion.div 
             className="absolute inset-0 bg-[#2f472c] opacity-80"
-            // Simple initial load/mount animation for the overlay
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             transition={{ duration: 1.5 }}
-          ></motion.div>
+          />
         </div>
+
         <motion.div 
           className="relative z-10 max-w-4xl mx-auto px-4 text-center"
           initial="hidden"
@@ -86,9 +82,9 @@ export function LandingPage() {
           variants={{
             hidden: { opacity: 0, y: -20 },
             visible: { 
-              opacity: 1, 
-              y: 0, 
-              transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.2 }
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.8, ease: EASE, staggerChildren: 0.2 }
             }
           }}
         >
@@ -98,6 +94,7 @@ export function LandingPage() {
           >
             Trusted Partner in Distribution and Wholesale
           </motion.h1>
+
           <motion.p 
             className="text-white text-lg md:text-xl"
             variants={defaultVariants}
@@ -107,7 +104,7 @@ export function LandingPage() {
         </motion.div>
       </section>
 
-      {/* Statistics (already animated with AnimatedCounter) */}
+      {/* STATS */}
       <section className="bg-[#2f472c] py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -122,10 +119,11 @@ export function LandingPage() {
           </div>
         </div>
       </section>
-      
-      {/* Features (Animated with staggered cards) */}
+
+      {/* FEATURES */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-4"
             initial="hidden"
@@ -135,16 +133,13 @@ export function LandingPage() {
           >
             We offer quality, <span className="text-gray-600">with the best products and service</span>
           </motion.h2>
+
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={{
-              visible: { 
-                transition: { staggerChildren: 0.1 } 
-              }
-            }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             {features.map((feature, index) => (
               <motion.div
@@ -155,6 +150,7 @@ export function LandingPage() {
                 <div className="bg-[#2f472c] w-12 h-12 rounded flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-[#f5c71d]" />
                 </div>
+
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">{feature.title}</h3>
                 <p className="text-gray-600">{feature.description}</p>
               </motion.div>
@@ -163,9 +159,10 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* About - ANIMATION ADDED */}
+      {/* ABOUT */}
       <section id="about" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-12"
             initial="hidden"
@@ -175,25 +172,17 @@ export function LandingPage() {
           >
             Who We Are
           </motion.h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              variants={defaultVariants}
-            >
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={defaultVariants}>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
                 alt="Team meeting"
                 className="rounded-lg shadow-lg w-full"
               />
             </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.5 }}
-              variants={defaultVariants}
-            >
+
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }} variants={defaultVariants}>
               <h3 className="text-2xl md:text-3xl font-bold text-[#f5c71d] mb-4">Rhodesian Sales Corp.</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 A leading distributor and wholesaler of pharmaceutical, cosmetic and consumer goods with a strong presence in
@@ -210,9 +199,10 @@ export function LandingPage() {
         </div>
       </section>
 
-      {/* Products - ANIMATION ADDED */}
+      {/* PRODUCTS */}
       <section id="products" className="py-20 bg-[#2f472c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center text-white mb-4"
             initial="hidden"
@@ -222,33 +212,37 @@ export function LandingPage() {
           >
             Our Products
           </motion.h2>
+
           <motion.p 
             className="text-center text-gray-300 mb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.8 }}
-            variants={{ ...defaultVariants, transition: { duration: 0.6, delay: 0.1 } }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 0.6, ease: EASE, delay: 0.1 }
+              }
+            }}
           >
             A diverse product range to meet all your wholesale and retail needs.
           </motion.p>
+
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={{
-              visible: { 
-                transition: { staggerChildren: 0.2 } 
-              }
-            }}
+            variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
           >
             {products.map((product, index) => (
               <motion.div
                 key={index}
                 className="border-2 border-white p-12 rounded-lg flex flex-col items-center justify-center hover:bg-[#3d5a38] transition"
-                variants={featureVariants} // Reusing feature variants for product cards
+                variants={featureVariants}
               >
-                {/* Logo image */}
                 <img
                   src={product.logo}
                   alt={product.name}
@@ -261,10 +255,10 @@ export function LandingPage() {
         </div>
       </section>
 
-
-      {/* Contact - ANIMATION ADDED */}
+      {/* CONTACT */}
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-4"
             initial="hidden"
@@ -274,43 +268,42 @@ export function LandingPage() {
           >
             Contact Us
           </motion.h2>
+
           <motion.p 
             className="text-center text-gray-600 mb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.8 }}
-            variants={{ ...defaultVariants, transition: { duration: 0.6, delay: 0.1 } }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { 
+                opacity: 1, 
+                y: 0,
+                transition: { duration: 0.6, ease: EASE, delay: 0.1 }
+              }
+            }}
           >
             Get in touch with our team for wholesale inquiries and promotions!
           </motion.p>
 
-          {/* Grid with form and contact info */}
           <motion.div 
             className="grid grid-cols-1 lg:grid-cols-2 gap-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={{
-              visible: { 
-                transition: { staggerChildren: 0.2 } 
-              }
-            }}
+            variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
           >
             
             <motion.div variants={defaultVariants}>
               <ContactForm />
             </motion.div>
 
-
-            {/* Contact info */}
             <motion.div className="space-y-8" variants={defaultVariants}>
               <div className="flex items-start space-x-4">
                 <MapPinIcon className="w-6 h-6 text-[#f5c71d] mt-1" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Address</h3>
-                  <p className="text-gray-600">
-                    31 Iglesia Ni Kristo Street, Marilao, 3019 Bulacan
-                  </p>
+                  <p className="text-gray-600">31 Iglesia Ni Kristo Street, Marilao, 3019 Bulacan</p>
                 </div>
               </div>
 
